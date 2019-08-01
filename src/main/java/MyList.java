@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class MyList implements List {
+public class MyList<E> implements List<E> {
 
 	public int size() {
 		return 0;
@@ -17,7 +17,7 @@ public class MyList implements List {
 		return false;
 	}
 
-	public Iterator iterator() {
+	public Iterator<E> iterator() {
 		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
@@ -25,7 +25,11 @@ public class MyList implements List {
 		return new Object[0];
 	}
 
-	public boolean add(Object o) {
+	public <T> T[] toArray(T[] a) {
+		return null;
+	}
+
+	public boolean add(E e) {
 		return false;
 	}
 
@@ -33,11 +37,23 @@ public class MyList implements List {
 		return false;
 	}
 
-	public boolean addAll(Collection c) {
+	public boolean containsAll(Collection<?> c) {
 		return false;
 	}
 
-	public boolean addAll(int index, Collection c) {
+	public boolean addAll(Collection<? extends E> c) {
+		return false;
+	}
+
+	public boolean addAll(int index, Collection<? extends E> c) {
+		return false;
+	}
+
+	public boolean removeAll(Collection<?> c) {
+		return false;
+	}
+
+	public boolean retainAll(Collection<?> c) {
 		return false;
 	}
 
@@ -45,19 +61,19 @@ public class MyList implements List {
 
 	}
 
-	public Object get(int index) {
+	public E get(int index) {
 		return null;
 	}
 
-	public Object set(int index, Object element) {
+	public E set(int index, E element) {
 		return null;
 	}
 
-	public void add(int index, Object element) {
+	public void add(int index, E element) {
 
 	}
 
-	public Object remove(int index) {
+	public E remove(int index) {
 		return null;
 	}
 
@@ -69,32 +85,15 @@ public class MyList implements List {
 		return 0;
 	}
 
-	public ListIterator listIterator() {
+	public ListIterator<E> listIterator() {
 		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
-	public ListIterator listIterator(int index) {
+	public ListIterator<E> listIterator(int index) {
 		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
-	public List subList(int fromIndex, int toIndex) {
+	public List<E> subList(int fromIndex, int toIndex) {
 		return null;
 	}
-
-	public boolean retainAll(Collection c) {
-		return false;
-	}
-
-	public boolean removeAll(Collection c) {
-		return false;
-	}
-
-	public boolean containsAll(Collection c) {
-		return false;
-	}
-
-	public Object[] toArray(Object[] a) {
-		return new Object[0];
-	}
-
 }
