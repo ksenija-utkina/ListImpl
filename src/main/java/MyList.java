@@ -18,7 +18,7 @@ public class MyList implements List {
 	}
 
 	public Iterator iterator() {
-		return null;
+		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
 	public Object[] toArray() {
@@ -70,11 +70,11 @@ public class MyList implements List {
 	}
 
 	public ListIterator listIterator() {
-		return null;
+		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
 	public ListIterator listIterator(int index) {
-		return null;
+		throw new UnsupportedOperationException("no need to implement this method");
 	}
 
 	public List subList(int fromIndex, int toIndex) {
