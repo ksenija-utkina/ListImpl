@@ -125,4 +125,24 @@ class MyListTest {
 		assertEquals("2", array[1]);
 	}
 
+	@Test
+	void givenList_whenAdd_thenTrueIsReturned() {
+		List<String> list = new MyList<>();
+		assertTrue(list.add("1"));
+	}
+
+	@Test
+	void givenListWithAnElement_whenRemove_thenTrueIsReturned() {
+		List<String> list = new MyList<>();
+		list.add("1");
+		assertTrue(list.remove("1"));
+	}
+
+	@Test
+	void givenListWithoutAnElement_whenRemove_thenFalseIsReturned() {
+		List<Long> list = new MyList<>();
+		list.add(2L);
+		assertFalse(list.remove(0L));
+	}
+
 }
