@@ -169,7 +169,7 @@ class MyListTest {
 	}
 
 	@Test
-	void givenList_whenAddAll_thenSizeAndOrderIsCorrect() {
+	void givenList_whenAddAll_thenSizeIsCorrect() {
 		List<Integer> list = new MyList<>();
 		list.addAll(Arrays.asList(1, 2, 3));
 		assertEquals(3, list.size());
