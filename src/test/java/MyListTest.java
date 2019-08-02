@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -143,6 +144,36 @@ class MyListTest {
 		List<Long> list = new MyList<>();
 		list.add(2L);
 		assertFalse(list.remove(0L));
+	}
+
+	@Test
+	void givenListWithAnElements_whenContainsAll_thenTrueIsReturned() {
+		List<Long> list = new MyList<>();
+		list.addAll(Arrays.asList(0L, 2L));
+		list.add(1L);
+		assertTrue(list.containsAll(Arrays.asList(0L, 1L)));
+	}
+
+	@Test
+	void givenListWithOnlyOneElement_whenContainsAll_thenFalseIsReturned() {
+		List<String> list = new MyList<>();
+		list.add("0");
+		list.add("2");
+		assertFalse(list.containsAll(Arrays.asList("0", "1")));
+	}
+
+	@Test
+	void givenEmptyList_whenContainsAll_thenFalseIsReturned() {
+		List<Long> list = new MyList<>();
+		assertFalse(list.containsAll(Arrays.asList(0L, 1L)));
+	}
+
+	@Test
+	void givenList_whenAddAll_thenSizeAndOrderIsCorrect() {
+		List<Integer> list = new MyList<>();
+		list.addAll(Arrays.asList(1, 2, 3));
+		assertEquals(3, list.size());
+		assertTrue(list.containsAll(Arrays.asList(1, 2, 3)));
 	}
 
 }
