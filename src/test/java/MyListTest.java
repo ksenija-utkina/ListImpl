@@ -16,10 +16,10 @@ class MyListTest {
 
 	@Test
 	void givenListWithTwoElements_whenSize_thenTwoReturned() {
-		List<String> myList = new MyList<>();
-		myList.add("1");
-		myList.add("1");
-		assertEquals(2, myList.size());
+		List<String> list = new MyList<>();
+		list.add("1");
+		list.add("1");
+		assertEquals(2, list.size());
 	}
 
 	@Test
@@ -64,21 +64,23 @@ class MyListTest {
 	}
 
 	@Test
-	void givenListWithUser_whenEmailChanged_thenTrueIsReturned() {
+	void givenListWithUser_whenContainsWithSameUserId_thenTrueIsReturned() {
 		List<User> list = new MyList<>();
 		User user = new User(1L, "user", "user@mail.com");
+		User user2 = new User(1L, "user", "other@mail.com");
 		list.add(user);
-		user.setEmail("new@mail.com");
-		assertTrue(list.contains(user));
+
+		assertTrue(list.contains(user2));
 	}
 
 	@Test
-	void givenListWithUser_whenUserNameChanged_thenFalseIsReturned() {
+	void givenListWithUser_whenContainsWithDifferentUserId_thenFalseIsReturned() {
 		List<User> list = new MyList<>();
 		User user = new User(1L, "user", "user@mail.com");
+		User user2 = new User(2L, "other user", "user@mail.com");
 		list.add(user);
-		user.setName("new name");
-		assertFalse(list.contains(user));
+
+		assertFalse(list.contains(user2));
 	}
 
 }
