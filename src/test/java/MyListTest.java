@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -81,6 +82,24 @@ class MyListTest {
 		list.add(user);
 
 		assertFalse(list.contains(user2));
+	}
+
+	@Test
+	void givenEmptyList_whenToArray_thenEmptyArrayIsReturned() {
+		List<Object> list = new MyList<>();
+		Object[] array = list.toArray();
+		assertEquals(0, array.length);
+	}
+
+	@Test
+	void givenList_whenToArray_thenArrayReturnedInRightOrder() {
+		List<String> list = new MyList<>();
+		list.add("1");
+		list.add("2");
+		Object[] array = list.toArray();
+		assertEquals(2, array.length);
+		assertEquals("1", array[0]);
+		assertEquals("2", array[1]);
 	}
 
 }
