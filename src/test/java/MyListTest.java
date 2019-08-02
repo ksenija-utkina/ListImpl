@@ -101,4 +101,28 @@ class MyListTest {
 		assertEquals("2", array[1]);
 	}
 
+	@Test
+	void givenList_whenGenericToArrayWithoutCapacity_thenArrayReturnedInRightOrder() {
+		List<String> list = new MyList<>();
+		list.add("1");
+		list.add("2");
+		String[] array = list.toArray(new String[]{});
+
+		assertEquals(2, array.length);
+		assertEquals("1", array[0]);
+		assertEquals("2", array[1]);
+	}
+
+	@Test
+	void givenList_whenGenericToArray_thenArrayReturnedInRightOrder() {
+		List<String> list = new MyList<>();
+		list.add("1");
+		list.add("2");
+		String[] array = list.toArray(new String[2]);
+
+		assertEquals(2, array.length);
+		assertEquals("1", array[0]);
+		assertEquals("2", array[1]);
+	}
+
 }
